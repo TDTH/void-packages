@@ -1,0 +1,17 @@
+diff -u i/sound/pci/hda/patch_realtek.c w/sound/pci/hda/patch_realtek.c
+--- i/sound/pci/hda/patch_realtek.c	2020-07-26 08:30:01.371887879 -0500
++++ w/sound/pci/hda/patch_realtek.c	2020-07-26 08:29:59.918554608 -0500
+@@ -3296,8 +3296,11 @@
+ 	if (hp_pin_sense)
+ 		msleep(85);
+ 
+-	snd_hda_codec_write(codec, hp_pin, 0,
+-			    AC_VERB_SET_PIN_WIDGET_CONTROL, PIN_OUT);
++	/* snd_hda_codec_write(codec, hp_pin, 0, */
++	/*		    AC_VERB_SET_PIN_WIDGET_CONTROL, PIN_OUT); */
++
++	snd_hda_codec_write(codec, 0x1b, 0,
++			    0x707, 0x60);
+ 
+ 	if (hp_pin_sense)
+ 		msleep(85);
