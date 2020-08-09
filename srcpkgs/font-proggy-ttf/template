@@ -1,0 +1,24 @@
+# Template file for 'font-proggy-ttf'
+pkgname=font-proggy-ttf
+version=1.1.5
+revision=2
+archs=noarch
+wrksrc="proggyfonts-${version}"
+hostmakedepends="unzip"
+depends="font-util"
+short_desc="Monospace fonts for programming"
+maintainer="pcell <TOHA@heavyIndustries.ltd>"
+license="MIT"
+homepage="https://github.com/bluescan/proggyfonts"
+distfiles="https://github.com/bluescan/proggyfonts/archive/v${version}.zip"
+checksum=260c5311b655ef1e73bf38947a82d37f14ed51522d3bcaf1b466c2d6225b11bb
+
+font_dirs="/usr/share/fonts/TTF"
+
+do_install() {
+    vmkdir usr/share/fonts/TTF
+    for f in ProggyOriginal/*.ttf; do
+        vinstall "$f" 644 usr/share/fonts/TTF/
+    done
+    vlicense LICENSE LICENSE.md
+}
