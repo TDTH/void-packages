@@ -16,10 +16,13 @@ license="ISC"
 homepage="http://spectrwm.org"
 distfiles="https://github.com/conformal/spectrwm/archive/${_distname}.tar.gz"
 checksum=c030ef30bd11bbdfce3d4a1daf51f0c1358821ba95ebdc4cdb32d3944c8ce03c
+<<<<<<< HEAD
 
 if [ "$XBPS_TARGET_LIBC" = "musl" ]; then
 	makedepends+=" musl-legacy-compat"
 fi
+=======
+>>>>>>> b64a1b3284... Update to 3.4.1
 
 post_install() {
 	vlicense LICENSE.md
